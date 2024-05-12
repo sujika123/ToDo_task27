@@ -1,0 +1,23 @@
+{% extends 'dash.html' %}
+{% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
+{% block content %}
+
+
+<div class="card" style="color:black;">
+    <div class="card-body">
+        <h4 class="card-title">Add Task</h4>
+        <form method ='post' enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form|crispy}}
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+
+</div>
+
+
+
+{% endblock %}

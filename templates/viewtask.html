@@ -1,0 +1,39 @@
+{% extends 'dash.html' %}
+{% block content %}
+
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">View task</h4>
+       <table class="table" >
+         <thead>
+    <tr>
+      <th>SI.NO</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Edit</th>
+      <th>Edit</th>
+
+    </tr>
+    {% for i in data %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{i.Title}}</td>
+      <td>{{i.Description}}</td>
+      <td>{{i.Status}}</td>
+
+
+      <td><a href="{% url 'taskupdate' i.id %}"><button class="btn btn-info" type="submit">Update</button></a></td>
+      <td><a href="{% url 'taskdelete' i.id %}"><button class="btn btn-danger" type="submit">Delete</button></a></td>
+
+
+
+    </tr>
+    {% endfor %}
+   </tbody>
+       </table>
+  </div>
+</div>
+
+
+{% endblock %}
